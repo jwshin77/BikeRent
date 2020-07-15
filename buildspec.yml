@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "bikeRent"
+    _PROJECT_NAME: "bikerent"
     _AWS_ACCOUNT: "admin10"
 
 phases:

@@ -4,7 +4,8 @@ public class BikeReturned extends AbstractEvent {
 
     private Long id;
     private Long bikeInventoryId;
-    private Long status;
+    private String status;
+    private String location;
 
     public BikeReturned(){
         super();
@@ -24,11 +25,19 @@ public class BikeReturned extends AbstractEvent {
     public void setBikeInventoryId(Long bikeInventoryId) {
         this.bikeInventoryId = bikeInventoryId;
     }
-    public Long getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Long status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
