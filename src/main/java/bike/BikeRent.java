@@ -13,6 +13,7 @@ public class BikeRent {
     private Long id;
     private Long bikeInventoryId;
     private String status;
+    private String location;
 
     @PostPersist
     public void onPostPersist(){
@@ -55,7 +56,11 @@ public class BikeRent {
         this.status = status;
     }
 
+    public String getLocation() {
+        return location;
+    }
 
-
-
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }
