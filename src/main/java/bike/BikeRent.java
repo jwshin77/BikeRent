@@ -30,7 +30,17 @@ public class BikeRent {
         BeanUtils.copyProperties(this, bikeReturned);
         bikeReturned.publishAfterCommit();
 
+        //Following code causes dependency to external APIs
+        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
+        bike.external.BikeInventory bikeInventory = new bike.external.BikeInventory();
+        // mappings goes here
+
+        bikeInventory.setLocation("locatedByResReq");
+        bikeInventory.setStatus("readyByResReq");
+
+        BikeRentApplication.applicationContext.getBean(bike.external.BikeInventoryService.class)
+                .registBike(bikeInventory);
     }
 
 
