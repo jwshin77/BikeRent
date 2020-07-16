@@ -6,6 +6,7 @@ public class BikeRented extends AbstractEvent {
     private Long bikeInventoryId;
     private String status;
 
+
     public BikeRented(){
         super();
     }
