@@ -26,9 +26,7 @@ public class BikeRent {
 
     @PostUpdate
     public void onPostUpdate(){
-        BikeReturned bikeReturned = new BikeReturned();
-        BeanUtils.copyProperties(this, bikeReturned);
-        bikeReturned.publishAfterCommit();
+
 
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
@@ -41,6 +39,10 @@ public class BikeRent {
 
         BikeRentApplication.applicationContext.getBean(bike.external.BikeInventoryService.class)
                 .registBike(bikeInventory);
+
+        BikeReturned bikeReturned = new BikeReturned();
+        BeanUtils.copyProperties(this, bikeReturned);
+        bikeReturned.publishAfterCommit();
     }
 
 
